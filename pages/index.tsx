@@ -1,11 +1,12 @@
 import Head from "next/head"
 import RoundContainer from "../components/RoundContainer"
 import Block from "../components/Block"
+import Section from "../components/Section"
 import Text from "../components/Text"
 import Headshot from "../public/headshot.jpg"
 import Image from "next/image"
-import { LARGE_IMAGE_RADIUS, PAGE_PADDING } from "../utils/constants"
 import CenterContainer from "../components/CenterContainer"
+import { LARGE_IMAGE_RADIUS } from "../utils/constants"
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
         <title>Joshua Allum</title>
       </Head>
       <CenterContainer>
-        <Block padding={PAGE_PADDING}>
+        <Section>
           <RoundContainer
             width={LARGE_IMAGE_RADIUS}
             height={LARGE_IMAGE_RADIUS}
@@ -30,7 +31,10 @@ const Home = () => {
             I’m a software engineer at OpenSea and cofounder of Sell Your Stuff
             at home in Trinidad and Tobago 🇹🇹
           </Text>
-        </Block>
+        </Section>
+        <Section>
+          <Text variant="h1">More about me</Text>
+        </Section>
       </CenterContainer>
     </>
   )
