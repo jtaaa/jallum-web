@@ -3,7 +3,7 @@ import RoundContainer from "../components/RoundContainer"
 import Section from "../components/Section"
 import Text from "../components/Text"
 import Icon from "../components/Icon"
-import Headshot from "../public/headshot.jpg"
+import JoshLaughing from "../public/josh_laughing.webp"
 import Image from "next/image"
 import CenterContainer from "../components/CenterContainer"
 import LargeScreenOnly from "../components/LargeScreenOnly"
@@ -15,7 +15,7 @@ import {
 } from "../utils/constants"
 import Octocat from "../public/octocat_small_color.webp"
 import Twitter from "../public/twitter_color.svg"
-import Resume from "../public/resume.png"
+import Resume from "../public/resume.webp"
 import Teleios from "../public/teleios_small_color_whitebg.webp"
 import Massy from "../public/massy_small_color.webp"
 import IBM from "../public/ibm_small_color.webp"
@@ -41,7 +41,7 @@ const Home = () => {
             height={LARGE_IMAGE_RADIUS}
             margin={["0 auto", 0]}
           >
-            <Image src={Headshot} alt="Josh Laughing" />
+            <Image src={JoshLaughing} alt="Josh Laughing" />
           </RoundContainer>
           <Text variant="title" textAlign={["center", "start"]}>
             Joshua Allum
