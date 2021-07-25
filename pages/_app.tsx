@@ -3,6 +3,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components"
 
 const theme = {
   colors: {
+    active: "#222",
     primary: "#444",
     text: "#444",
     fall: "#CA4130",
@@ -20,11 +21,19 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-
+  
   a {
+    outline: none;
     text-decoration-style: dotted;
     text-underline-offset: 0.25em;
     text-decoration-color: ${(props) => (props.theme as Theme).colors.link};
+    transition: all 100ms ease;
+
+    &:hover, &:focus {
+      font-weight: bold;
+      color: ${(props) => (props.theme as Theme).colors.active};
+      text-decoration-thickness: 0.2em;
+    }
   }
 `
 
