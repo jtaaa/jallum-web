@@ -13,6 +13,9 @@ const theme = {
   colors: {
     primary: "#444",
     text: "#444",
+    fall: "#CA4130",
+    winter: "#ACD7C6",
+    spring: "#6B862E",
   },
 }
 
