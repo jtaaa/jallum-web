@@ -7,7 +7,12 @@ import Headshot from "../public/headshot.jpg"
 import Image from "next/image"
 import CenterContainer from "../components/CenterContainer"
 import LargeScreenOnly from "../components/LargeScreenOnly"
-import { LARGE_IMAGE_RADIUS } from "../utils/constants"
+import {
+  GITHUB_PROFILE_URL,
+  TWITTER_PROFILE_URL,
+  WEB_RESUME_URL,
+  LARGE_IMAGE_RADIUS,
+} from "../utils/constants"
 import Octocat from "../public/octocat_small_color.webp"
 import Twitter from "../public/twitter_color.svg"
 import Resume from "../public/resume.png"
@@ -21,6 +26,7 @@ import ACS from "../public/acs_small_bw.webp"
 import Blueprint from "../public/bp_small_color.png"
 import SellYourStuff from "../public/sellyourstuff_color.svg"
 import Flex from "../components/Flex"
+import ExternalLink from "../components/ExternalLink"
 
 const Home = () => {
   return (
@@ -51,15 +57,21 @@ const Home = () => {
           <Text variant="h1">More about me</Text>
           <Flex alignItems="center">
             <Icon name="GitHub" src={Octocat} alt="GitHub profile" />
-            <Text>Check out my GitHub profile</Text>
+            <ExternalLink href={GITHUB_PROFILE_URL}>
+              <Text>Check out my GitHub profile</Text>
+            </ExternalLink>
           </Flex>
           <Flex alignItems="center">
             <Icon name="Twitter" src={Twitter} alt="Twitter profile" />
-            <Text>Tweet at me</Text>
+            <ExternalLink href={TWITTER_PROFILE_URL}>
+              <Text>Tweet at me</Text>
+            </ExternalLink>
           </Flex>
           <Flex alignItems="center">
             <Icon name="Resume" src={Resume} alt="Online résumé" />
-            <Text>View my online résumé</Text>
+            <ExternalLink href={WEB_RESUME_URL}>
+              <Text>View my online résumé</Text>
+            </ExternalLink>
           </Flex>
         </Section>
 
