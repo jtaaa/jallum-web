@@ -33,6 +33,10 @@ const Home = () => {
     <>
       <Head>
         <title>Joshua Allum</title>
+        <meta
+          name="description"
+          content="Software engineer at OpenSea and cofounder of Sell Your Stuff from Trinidad and Tobago."
+        />
       </Head>
       <CenterContainer>
         <Section>
