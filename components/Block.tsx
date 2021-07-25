@@ -1,6 +1,17 @@
 import styled from "styled-components"
-import { layout, LayoutProps, space, SpaceProps } from "styled-system"
+import {
+  borderRadius,
+  BorderRadiusProps,
+  layout,
+  LayoutProps,
+  space,
+  SpaceProps,
+} from "styled-system"
 
-const Block = styled.div<LayoutProps & SpaceProps>(space, layout)
+const Block = styled.div<LayoutProps & SpaceProps & BorderRadiusProps>(
+  borderRadius,
+  layout,
+  space
+)
 
 export default Block
