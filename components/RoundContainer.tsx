@@ -1,7 +1,8 @@
 import styled from "styled-components"
-import Block from "./Block"
+import Block, { BlockProps } from "./Block"
+import CenterContainer from "./CenterContainer"
 
-const RoundContainer = styled(Block)`
+const RoundContainer = styled(CenterContainer)<BlockProps>`
   border-radius: 50%;
   overflow: hidden;
 `

@@ -12,6 +12,15 @@ import {
   TWITTER_PROFILE_URL,
   WEB_RESUME_URL,
   LARGE_IMAGE_RADIUS,
+  OPENSEA_URL,
+  SPLUNK_URL,
+  SELLYOURSTUFF_URL,
+  COGNITE_URL,
+  IBM_URL,
+  MASSY_URL,
+  UWBLUEPRINT_URL,
+  TELEIOS_URL,
+  ACS_URL,
 } from "../utils/constants"
 import Octocat from "../public/octocat_small_color.webp"
 import Twitter from "../public/twitter_color.svg"
@@ -28,6 +37,7 @@ import SellYourStuff from "../public/sellyourstuff_color.svg"
 import Flex from "../components/Flex"
 import ExternalLink from "../components/ExternalLink"
 import TimelineItem from "../components/TimelineItem"
+import mLink from "../components/Link"
 
 const Home = () => {
   return (
@@ -62,19 +72,19 @@ const Home = () => {
           <Text variant="h1">More about me</Text>
           <Flex alignItems="center">
             <Icon name="GitHub" src={Octocat} alt="GitHub profile" />
-            <ExternalLink href={GITHUB_PROFILE_URL}>
+            <ExternalLink name="GitHub profile" href={GITHUB_PROFILE_URL}>
               <Text>Check out my GitHub profile</Text>
             </ExternalLink>
           </Flex>
           <Flex alignItems="center">
             <Icon name="Twitter" src={Twitter} alt="Twitter profile" />
-            <ExternalLink href={TWITTER_PROFILE_URL}>
+            <ExternalLink name="Twitter profile" href={TWITTER_PROFILE_URL}>
               <Text>Tweet at me</Text>
             </ExternalLink>
           </Flex>
           <Flex alignItems="center">
             <Icon name="Resume" src={Resume} alt="Online résumé" />
-            <ExternalLink href={WEB_RESUME_URL}>
+            <ExternalLink name="Web Resume" href={WEB_RESUME_URL}>
               <Text>View my online résumé</Text>
             </ExternalLink>
           </Flex>
@@ -83,7 +93,9 @@ const Home = () => {
         <Section>
           <Text variant="h1">Places I’ve contributed</Text>
           <TimelineItem>
-            <Icon name="OpenSea" src={OpenSea} alt="OpenSea" />
+            <ExternalLink name="OpenSea" variant="icon-only" href={OPENSEA_URL}>
+              <Icon name="OpenSea" src={OpenSea} alt="OpenSea" />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>OpenSea</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
@@ -93,7 +105,13 @@ const Home = () => {
             </Flex>
           </TimelineItem>
           <TimelineItem>
-            <Icon name="Splunk" src={Splunk} alt="Splunk Inc" />
+            <ExternalLink
+              name="Splunk Inc"
+              variant="icon-only"
+              href={SPLUNK_URL}
+            >
+              <Icon name="Splunk" src={Splunk} alt="Splunk Inc" />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>Splunk Inc</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
@@ -102,11 +120,17 @@ const Home = () => {
             </Flex>
           </TimelineItem>
           <TimelineItem>
-            <Icon
+            <ExternalLink
               name="Sell Your Stuff"
-              src={SellYourStuff}
-              alt="Sell Your Stuff"
-            />
+              variant="icon-only"
+              href={SELLYOURSTUFF_URL}
+            >
+              <Icon
+                name="Sell Your Stuff"
+                src={SellYourStuff}
+                alt="Sell Your Stuff"
+              />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>Sell Your Stuff</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
@@ -116,7 +140,13 @@ const Home = () => {
             </Flex>
           </TimelineItem>
           <TimelineItem>
-            <Icon name="Cognite" src={Cognite} alt="Cognite AS" />
+            <ExternalLink
+              name="Cognite AS"
+              variant="icon-only"
+              href={COGNITE_URL}
+            >
+              <Icon name="Cognite" src={Cognite} alt="Cognite AS" />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>Cognite AS</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
@@ -125,7 +155,13 @@ const Home = () => {
             </Flex>
           </TimelineItem>
           <TimelineItem>
-            <Icon name="IBM" src={IBM} alt="IBM Canada" />
+            <ExternalLink
+              name="IBM Canada Toronto Labs"
+              variant="icon-only"
+              href={IBM_URL}
+            >
+              <Icon name="IBM" src={IBM} alt="IBM Canada" />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>IBM Canada Toronto Labs</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
@@ -134,7 +170,13 @@ const Home = () => {
             </Flex>
           </TimelineItem>
           <TimelineItem>
-            <Icon name="Massy" src={Massy} alt="Massy Technologies InfoCom" />
+            <ExternalLink
+              name="Massy Technologies InfoCom"
+              variant="icon-only"
+              href={MASSY_URL}
+            >
+              <Icon name="Massy" src={Massy} alt="Massy Technologies InfoCom" />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>Massy Technologies InfoCom</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
@@ -143,7 +185,13 @@ const Home = () => {
             </Flex>
           </TimelineItem>
           <TimelineItem>
-            <Icon name="Blueprint" src={Blueprint} alt="UW Blueprint" />
+            <ExternalLink
+              name="UW Blueprint"
+              variant="icon-only"
+              href={UWBLUEPRINT_URL}
+            >
+              <Icon name="Blueprint" src={Blueprint} alt="UW Blueprint" />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>UW Blueprint</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
@@ -153,7 +201,17 @@ const Home = () => {
             </Flex>
           </TimelineItem>
           <TimelineItem>
-            <Icon name="Teleios" src={Teleios} alt="Teleios Systems Limited" />
+            <ExternalLink
+              name="Teleios Systems Limited"
+              variant="icon-only"
+              href={TELEIOS_URL}
+            >
+              <Icon
+                name="Teleios"
+                src={Teleios}
+                alt="Teleios Systems Limited"
+              />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>Teleios Systems Limited</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
@@ -162,11 +220,17 @@ const Home = () => {
             </Flex>
           </TimelineItem>
           <TimelineItem>
-            <Icon
-              name="ACS"
-              src={ACS}
-              alt="Association of Caribbean Students"
-            />
+            <ExternalLink
+              name="Assoc. of Caribbean Students"
+              variant="icon-only"
+              href={ACS_URL}
+            >
+              <Icon
+                name="ACS"
+                src={ACS}
+                alt="Association of Caribbean Students"
+              />
+            </ExternalLink>
             <Flex width="100%" justifyContent="space-between">
               <Text>Assoc. of Caribbean Students</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">

@@ -10,6 +10,8 @@ import {
   ColorProps,
   layout,
   LayoutProps,
+  position,
+  PositionProps,
   space,
   SpaceProps,
 } from "styled-system"
@@ -21,7 +23,12 @@ export type BlockProps = BackgroundProps &
   SpaceProps
 
 const Block = styled.div<
-  BackgroundProps & BorderRadiusProps & ColorProps & LayoutProps & SpaceProps
->(background, border, borderRadius, color, layout, space)
+  BackgroundProps &
+    BorderRadiusProps &
+    ColorProps &
+    LayoutProps &
+    PositionProps &
+    SpaceProps
+>(background, border, borderRadius, color, layout, position, space)
 
 export default Block
