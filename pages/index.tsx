@@ -27,6 +27,7 @@ import Blueprint from "../public/bp_small_color.png"
 import SellYourStuff from "../public/sellyourstuff_color.svg"
 import Flex from "../components/Flex"
 import ExternalLink from "../components/ExternalLink"
+import TimelineItem from "../components/TimelineItem"
 
 const Home = () => {
   return (
@@ -81,24 +82,26 @@ const Home = () => {
 
         <Section>
           <Text variant="h1">Places I’ve contributed</Text>
-          <Flex alignItems="center">
+          <TimelineItem>
             <Icon name="OpenSea" src={OpenSea} alt="OpenSea" />
             <Flex width="100%" justifyContent="space-between">
               <Text>OpenSea</Text>
-              <Text variant="tag">
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
                 ☀️ 2021
                 <LargeScreenOnly display="inline">–Present</LargeScreenOnly>
               </Text>
             </Flex>
-          </Flex>
-          <Flex alignItems="center">
+          </TimelineItem>
+          <TimelineItem>
             <Icon name="Splunk" src={Splunk} alt="Splunk Inc" />
             <Flex width="100%" justifyContent="space-between">
               <Text>Splunk Inc</Text>
-              <Text variant="tag">❄️ 2021</Text>
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
+                ❄️ 2021
+              </Text>
             </Flex>
-          </Flex>
-          <Flex alignItems="center">
+          </TimelineItem>
+          <TimelineItem>
             <Icon
               name="Sell Your Stuff"
               src={SellYourStuff}
@@ -106,51 +109,59 @@ const Home = () => {
             />
             <Flex width="100%" justifyContent="space-between">
               <Text>Sell Your Stuff</Text>
-              <Text variant="tag">
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
                 ☀️ 2020
                 <LargeScreenOnly display="inline">–Present</LargeScreenOnly>
               </Text>
             </Flex>
-          </Flex>
-          <Flex alignItems="center">
+          </TimelineItem>
+          <TimelineItem>
             <Icon name="Cognite" src={Cognite} alt="Cognite AS" />
             <Flex width="100%" justifyContent="space-between">
               <Text>Cognite AS</Text>
-              <Text variant="tag">🍁 2019</Text>
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
+                🍁 2019
+              </Text>
             </Flex>
-          </Flex>
-          <Flex alignItems="center">
+          </TimelineItem>
+          <TimelineItem>
             <Icon name="IBM" src={IBM} alt="IBM Canada" />
             <Flex width="100%" justifyContent="space-between">
               <Text>IBM Canada Toronto Labs</Text>
-              <Text variant="tag">❄️ 2019</Text>
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
+                ❄️ 2019
+              </Text>
             </Flex>
-          </Flex>
-          <Flex alignItems="center">
+          </TimelineItem>
+          <TimelineItem>
             <Icon name="Massy" src={Massy} alt="Massy Technologies InfoCom" />
             <Flex width="100%" justifyContent="space-between">
               <Text>Massy Technologies InfoCom</Text>
-              <Text variant="tag">☀️ 2018</Text>
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
+                ☀️ 2018
+              </Text>
             </Flex>
-          </Flex>
-          <Flex alignItems="center">
+          </TimelineItem>
+          <TimelineItem>
             <Icon name="Blueprint" src={Blueprint} alt="UW Blueprint" />
             <Flex width="100%" justifyContent="space-between">
               <Text>UW Blueprint</Text>
-              <Text variant="tag">
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
                 ❄️ 2018
                 <LargeScreenOnly display="inline">–2020</LargeScreenOnly>
               </Text>
             </Flex>
-          </Flex>
-          <Flex alignItems="center">
+          </TimelineItem>
+          <TimelineItem>
             <Icon name="Teleios" src={Teleios} alt="Teleios Systems Limited" />
             <Flex width="100%" justifyContent="space-between">
               <Text>Teleios Systems Limited</Text>
-              <Text variant="tag">☀️ 2017</Text>
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
+                ☀️ 2017
+              </Text>
             </Flex>
-          </Flex>
-          <Flex alignItems="center">
+          </TimelineItem>
+          <TimelineItem>
             <Icon
               name="ACS"
               src={ACS}
@@ -158,12 +169,12 @@ const Home = () => {
             />
             <Flex width="100%" justifyContent="space-between">
               <Text>Assoc. of Caribbean Students</Text>
-              <Text variant="tag">
+              <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
                 ☀️ 2017
                 <LargeScreenOnly display="inline">–2020</LargeScreenOnly>
               </Text>
             </Flex>
-          </Flex>
+          </TimelineItem>
         </Section>
       </CenterContainer>
     </>

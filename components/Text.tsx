@@ -61,7 +61,7 @@ const Text = styled(Block).attrs<TextProps>((props) => ({
             font-size: 1.1em;
           `
         case "tag":
-          return css`
+          return css<TextProps>`
             font-family: "Open Sans", sans-serif;
             font-size: 0.85em;
             line-height: 1.2em;
@@ -70,7 +70,7 @@ const Text = styled(Block).attrs<TextProps>((props) => ({
             border-radius: 0.2em;
             padding: 0.2em 0.4em;
             border: 1px solid ${(props) => props.theme.colors.primary};
-            margin: auto 0;
+            margin: ${(props) => (props.margin ? undefined : "auto 0")};
           `
         case undefined:
           return css`
