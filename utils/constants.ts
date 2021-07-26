@@ -8,7 +8,7 @@ export const TWITTER_PROFILE_URL = "https://twitter.com/allum_"
 export const WEB_RESUME_URL = "https://resume.jallum.xyz"
 
 // Places I’ve contributed stuff
-export const OPENSEA_URL = "https://opensea.io"
+export const OPENSEA_URL = "https://opensea.io/allum.eth"
 export const SPLUNK_URL = "https://splunk.com"
 export const SELLYOURSTUFF_URL = "https://sellyourstuff.tt"
 export const COGNITE_URL = "https://cognite.com"
