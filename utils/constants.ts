@@ -17,3 +17,6 @@ export const MASSY_URL = "https://massygroup.com"
 export const UWBLUEPRINT_URL = "https://uwblueprint.org"
 export const TELEIOS_URL = "https://teleios-systems.com"
 export const ACS_URL = "https://uwacs.club"
+
+// Useful stuff
+export const IS_SERVER = typeof window === "undefined"

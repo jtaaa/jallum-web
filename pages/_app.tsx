@@ -1,5 +1,6 @@
 import { AppProps } from "next/app"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
+import { IS_SERVER } from "../utils/constants"
 
 const theme = {
   colors: {
@@ -23,7 +24,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+import posthog from "posthog-js"
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  if (!IS_SERVER) {
+    posthog.init("phc_EwdTbkSTE1hfRXTRTlt77vGUjsjmDn42Uf3orzEWHF7", {
+      api_host: "https://app.posthog.com",
+    })
+  }
   return (
     <>
       <ThemeProvider theme={theme}>
