@@ -77,7 +77,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   const theme = useMemo(
     () => ({
-      ...THEMES[themeVariant ?? "light"],
+      ...THEMES[themeVariant ?? "dark"],
       setThemeVariant,
     }),
     [themeVariant]
@@ -94,7 +94,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     if (themeVariant === undefined) {
       const themeVariant = window.localStorage.getItem(THEME_VARIANT_LSKEY)
-      if (themeVariant) {
+      if (!themeVariant) {
+        window.localStorage.setItem(
+          THEME_VARIANT_LSKEY,
+          JSON.stringify(Math.random() < 0.8 ? "light" : "dark")
+        )
+      } else {
         setThemeVariant(JSON.parse(themeVariant))
       }
     } else {
