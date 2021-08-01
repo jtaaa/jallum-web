@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 import posthog from "posthog-js"
+import Head from "next/head"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   if (!IS_SERVER) {
@@ -34,6 +35,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component {...pageProps} />

@@ -44,10 +44,10 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Joshua Allum</title>
+        <title>Joshua Allum | OpenSea - Sell Your Stuff - T&T 🇹🇹</title>
         <meta
           name="description"
-          content="Software engineer at OpenSea and cofounder of Sell Your Stuff from Trinidad and Tobago."
+          content="Software engineer at OpenSea and cofounder of Sell Your Stuff from Trinidad and Tobago. UWaterloo CS (Data Science) with minor in Cognitive Science."
         />
       </Head>
       <CenterContainer>
