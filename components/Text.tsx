@@ -5,7 +5,7 @@ import Block, { BlockProps } from "./Block"
 
 type TextVariant = "title" | "h1" | "h2" | "p" | "tag"
 
-type TextProps = BlockProps &
+export type TextProps = BlockProps &
   TypographyProps & {
     variant?: TextVariant
   }

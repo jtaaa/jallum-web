@@ -3,8 +3,8 @@ import { Theme } from "../pages/_app"
 import Icon from "./Icon"
 import Link from "../public/link.svg"
 import Flex from "./Flex"
-import Block from "./Block"
 import RoundContainer from "./RoundContainer"
+import { linkCss } from "../utils/css"
 
 type ExternalLinkProps = {
   variant?: "icon-only"
@@ -61,21 +61,7 @@ const ExternalLink = styled.a.attrs<ExternalLinkProps>((props) => ({
           text-decoration: none;
         `
       default:
-        return css`
-          outline: none;
-          text-decoration-style: dotted;
-          text-underline-offset: 0.25em;
-          text-decoration-color: ${(props) =>
-            (props.theme as Theme).colors.link};
-          transition: all 100ms ease;
-
-          &:hover,
-          &:focus {
-            font-weight: bold;
-            color: ${(props) => (props.theme as Theme).colors.active};
-            text-decoration-thickness: 0.2em;
-          }
-        `
+        return linkCss
     }
   }}
 `
