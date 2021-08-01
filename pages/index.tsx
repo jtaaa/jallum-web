@@ -21,6 +21,7 @@ import {
   UWBLUEPRINT_URL,
   TELEIOS_URL,
   ACS_URL,
+  GARDEN_URL,
 } from "../utils/constants"
 import Octocat from "../public/octocat_small_color.webp"
 import Twitter from "../public/twitter_color.svg"
@@ -34,10 +35,10 @@ import Splunk from "../public/splunk_bw.svg"
 import ACS from "../public/acs_small_bw.webp"
 import Blueprint from "../public/bp_small_color.png"
 import SellYourStuff from "../public/sellyourstuff_color.svg"
+import Herb from "../public/herb_emoji_by_twitter.webp"
 import Flex from "../components/Flex"
 import ExternalLink from "../components/ExternalLink"
 import TimelineItem from "../components/TimelineItem"
-import mLink from "../components/Link"
 
 const Home = () => {
   return (
@@ -78,6 +79,16 @@ const Home = () => {
               href={GITHUB_PROFILE_URL}
             >
               <Text>Check out my GitHub profile</Text>
+            </ExternalLink>
+          </Flex>
+          <Flex alignItems="center">
+            <Icon name="Herb" src={Herb} alt="Herb" />
+            <ExternalLink
+              target="_blank"
+              name="Josh’s Garden"
+              href={GARDEN_URL}
+            >
+              <Text>Check out my garden 🧑🏽‍🌾</Text>
             </ExternalLink>
           </Flex>
           <Flex alignItems="center">
