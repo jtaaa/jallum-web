@@ -59,6 +59,7 @@ const Text = styled(Block).attrs<TextProps>((props) => ({
           return css`
             font-family: "Open Sans", sans-serif;
             font-size: 1.1em;
+            line-height: 1.6;
           `
         case "tag":
           return css<TextProps>`
