@@ -120,7 +120,10 @@ const Home = () => {
               <Text>OpenSea</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
                 ☀️ 2021
-                <LargeScreenOnly display="inline">–Present</LargeScreenOnly>
+                <LargeScreenOnly display="inline">
+                  {" "}
+                  &rarr; Present
+                </LargeScreenOnly>
               </Text>
             </Flex>
           </TimelineItem>
@@ -157,7 +160,10 @@ const Home = () => {
               <Text>Sell Your Stuff</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
                 ☀️ 2020
-                <LargeScreenOnly display="inline">–Present</LargeScreenOnly>
+                <LargeScreenOnly display="inline">
+                  {" "}
+                  &rarr; Present
+                </LargeScreenOnly>
               </Text>
             </Flex>
           </TimelineItem>
@@ -222,7 +228,10 @@ const Home = () => {
               <Text>UW Blueprint</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
                 ❄️ 2018
-                <LargeScreenOnly display="inline">–2020</LargeScreenOnly>
+                <LargeScreenOnly display="inline">
+                  {" "}
+                  &rarr; ❄️ 2020
+                </LargeScreenOnly>
               </Text>
             </Flex>
           </TimelineItem>
@@ -263,7 +272,10 @@ const Home = () => {
               <Text>Assoc. of Caribbean Students</Text>
               <Text variant="tag" minWidth={60} margin="auto 0 auto 8px">
                 ☀️ 2017
-                <LargeScreenOnly display="inline">–2020</LargeScreenOnly>
+                <LargeScreenOnly display="inline">
+                  {" "}
+                  &rarr; ☀️ 2020
+                </LargeScreenOnly>
               </Text>
             </Flex>
           </TimelineItem>
