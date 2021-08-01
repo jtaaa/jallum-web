@@ -1,10 +1,11 @@
 import { AppProps } from "next/app"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 import { IS_SERVER } from "../utils/constants"
-import useLocalStorageState from "use-local-storage-state"
 import Sun from "../public/sun.webp"
 import Button from "../components/Button"
 import Block from "../components/Block"
+
+const THEME_VARIANT_LSKEY = "theme-variant"
 
 const lightTheme = {
   colors: {
@@ -62,7 +63,7 @@ const StyledPageContainer = styled(Block)`
 
 import posthog from "posthog-js"
 import Head from "next/head"
-import { useMemo } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Icon from "../components/Icon"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -72,17 +73,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     })
   }
 
-  const [themeVariant, setThemeVariant] = useLocalStorageState<ThemeVariant>(
-    "theme-variant",
-    "light"
-  )
+  const [themeVariant, setThemeVariant] = useState<ThemeVariant>()
 
-  const theme = useMemo(() => {
-    return {
-      ...THEMES[themeVariant],
+  const theme = useMemo(
+    () => ({
+      ...THEMES[themeVariant ?? "light"],
       setThemeVariant,
-    }
-  }, [setThemeVariant, themeVariant])
+    }),
+    [themeVariant]
+  )
 
   const toggleThemeVariant = () => {
     if (themeVariant === "light") {
@@ -92,13 +91,27 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     }
   }
 
+  useEffect(() => {
+    if (themeVariant === undefined) {
+      const themeVariant = window.localStorage.getItem(THEME_VARIANT_LSKEY)
+      if (themeVariant) {
+        setThemeVariant(JSON.parse(themeVariant))
+      }
+    } else {
+      window.localStorage.setItem(
+        THEME_VARIANT_LSKEY,
+        JSON.stringify(themeVariant)
+      )
+    }
+  }, [themeVariant])
+
   return (
     <>
-      <GlobalStyle theme={theme} />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <StyledPageContainer height="100%" backgroundColor="background">
           <Component {...pageProps} />
         </StyledPageContainer>
