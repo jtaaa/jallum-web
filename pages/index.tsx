@@ -74,7 +74,7 @@ const Home = () => {
           <Flex alignItems="center">
             <Icon name="GitHub" src={Octocat} alt="GitHub profile" />
             <ExternalLink
-              target="_blank"
+              newTab
               name="GitHub profile"
               href={GITHUB_PROFILE_URL}
             >
@@ -83,18 +83,14 @@ const Home = () => {
           </Flex>
           <Flex alignItems="center">
             <Icon name="Herb" src={Herb} alt="Herb" />
-            <ExternalLink
-              target="_blank"
-              name="Josh’s Garden"
-              href={GARDEN_URL}
-            >
+            <ExternalLink newTab name="Josh’s Garden" href={GARDEN_URL}>
               <Text>Check out my garden 🧑🏽‍🌾</Text>
             </ExternalLink>
           </Flex>
           <Flex alignItems="center">
             <Icon name="Twitter" src={Twitter} alt="Twitter profile" />
             <ExternalLink
-              target="_blank"
+              newTab
               name="Twitter profile"
               href={TWITTER_PROFILE_URL}
             >
@@ -103,11 +99,7 @@ const Home = () => {
           </Flex>
           <Flex alignItems="center">
             <Icon name="Resume" src={Resume} alt="Online résumé" />
-            <ExternalLink
-              target="_blank"
-              name="Web Resume"
-              href={WEB_RESUME_URL}
-            >
+            <ExternalLink newTab name="Web Resume" href={WEB_RESUME_URL}>
               <Text>View my online résumé</Text>
             </ExternalLink>
           </Flex>
@@ -117,7 +109,7 @@ const Home = () => {
           <Text variant="h1">Places I’ve contributed</Text>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="OpenSea"
               variant="icon-only"
               href={OPENSEA_URL}
@@ -134,7 +126,7 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="Splunk Inc"
               variant="icon-only"
               href={SPLUNK_URL}
@@ -150,7 +142,7 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="Sell Your Stuff"
               variant="icon-only"
               href={SELLYOURSTUFF_URL}
@@ -171,7 +163,7 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="Cognite AS"
               variant="icon-only"
               href={COGNITE_URL}
@@ -187,7 +179,7 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="IBM Canada Toronto Labs"
               variant="icon-only"
               href={IBM_URL}
@@ -203,7 +195,7 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="Massy Technologies InfoCom"
               variant="icon-only"
               href={MASSY_URL}
@@ -219,7 +211,7 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="UW Blueprint"
               variant="icon-only"
               href={UWBLUEPRINT_URL}
@@ -236,7 +228,7 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="Teleios Systems Limited"
               variant="icon-only"
               href={TELEIOS_URL}
@@ -256,7 +248,7 @@ const Home = () => {
           </TimelineItem>
           <TimelineItem>
             <ExternalLink
-              target="_blank"
+              newTab
               name="Assoc. of Caribbean Students"
               variant="icon-only"
               href={ACS_URL}

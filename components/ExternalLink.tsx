@@ -9,6 +9,7 @@ import RoundContainer from "./RoundContainer"
 type ExternalLinkProps = {
   variant?: "icon-only"
   name: string
+  newTab?: boolean
 }
 
 const LinkIconContainer = styled(RoundContainer)`
@@ -31,6 +32,8 @@ const LinkIconContainer = styled(RoundContainer)`
 `
 
 const ExternalLink = styled.a.attrs<ExternalLinkProps>((props) => ({
+  rel: props.newTab ? "noopener" : undefined,
+  target: props.newTab ? "_blank" : undefined,
   ...props,
   children:
     props.variant === "icon-only" ? (
