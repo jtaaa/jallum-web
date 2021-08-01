@@ -57,7 +57,7 @@ const Home = () => {
             height={LARGE_IMAGE_RADIUS}
             margin={["0 auto", 0]}
           >
-            <Image src={JoshLaughing} alt="Josh Laughing" />
+            <Image src={JoshLaughing} alt="Josh Laughing" placeholder="blur" />
           </RoundContainer>
           <Text variant="title" textAlign={["center", "start"]}>
             Joshua Allum

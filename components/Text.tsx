@@ -15,9 +15,9 @@ const getAsTag = (variant: TextVariant | undefined): string => {
     case "title":
       return "h1"
     case "h1":
-      return "h1"
-    case "h2":
       return "h2"
+    case "h2":
+      return "h3"
     case "p":
       return "p"
     case "tag":
