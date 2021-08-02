@@ -61,6 +61,7 @@ import posthog from "posthog-js"
 import Head from "next/head"
 import Icon from "../components/Icon"
 import useLocalStorageState from "use-local-storage-state"
+import { useCallback } from "react"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   if (!IS_SERVER) {
@@ -72,17 +73,30 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const [themeVariant, setThemeVariant] =
     useLocalStorageState<ThemeVariant>(THEME_VARIANT_LSKEY)
 
-  const toggleThemeVariant = () => {
-    if (themeVariant === "light") {
+  const toggleThemeVariant = useCallback(() => {
+    const setDark = () => {
       setThemeVariant("dark")
       document.body.classList.add("dark")
       document.body.classList.remove("light")
-    } else {
+    }
+    const setLight = () => {
       setThemeVariant("light")
       document.body.classList.add("light")
       document.body.classList.remove("dark")
     }
-  }
+
+    if (themeVariant === "dark") {
+      setLight()
+    } else if (themeVariant === "light") {
+      setDark()
+    } else {
+      if (document.body.classList.contains("dark")) {
+        setLight()
+      } else {
+        setDark()
+      }
+    }
+  }, [setThemeVariant, themeVariant])
 
   return (
     <>
