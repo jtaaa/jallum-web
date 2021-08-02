@@ -21,3 +21,6 @@ export const GARDEN_URL = "https://josh.gdn"
 
 // Useful stuff
 export const IS_SERVER = typeof window === "undefined"
+
+// Theme stuff
+export const THEME_VARIANT_LSKEY = "theme-variant"

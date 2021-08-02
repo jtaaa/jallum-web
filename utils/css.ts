@@ -5,7 +5,7 @@ export const linkCss = css`
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 0.25em;
-  text-decoration-color: ${(props) => props.theme.colors.link};
+  text-decoration-color: ${(props) => props.theme.colors.text};
   transition: all 100ms ease;
 
   &:hover,

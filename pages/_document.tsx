@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
 import { ServerStyleSheet } from "styled-components"
+import { THEME_VARIANT_LSKEY } from "../utils/constants"
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -59,6 +60,31 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&family=Open+Sans:wght@400;700&display=swap"
             rel="stylesheet"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function() {
+                "use strict";
+
+                var observer = new MutationObserver(function() {
+                  if (document.body) {
+                    try {
+                      let lsPreferredThemeValue = localStorage.getItem('${THEME_VARIANT_LSKEY}')
+                      document.body.className = JSON.parse(lsPreferredThemeValue);
+                    } catch (err) {
+                      // lsPreferredThemeValue is not a valid JSON (unset)
+                      const randThemeValue = Math.random() < 0.5 ? 'light' : 'dark'
+                      document.body.className = randThemeValue;
+                    } finally {
+                      observer.disconnect();
+                    }
+                  }
+                });
+                observer.observe(document.documentElement, { childList: true });
+              })();
+            `,
+            }}
           />
         </Head>
         <body>

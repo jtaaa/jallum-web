@@ -1,50 +1,28 @@
 import { AppProps } from "next/app"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
-import { IS_SERVER } from "../utils/constants"
+import { IS_SERVER, THEME_VARIANT_LSKEY } from "../utils/constants"
 import Sun from "../public/sun.webp"
 import Button from "../components/Button"
 import Block from "../components/Block"
 
-const THEME_VARIANT_LSKEY = "theme-variant"
-
-const lightTheme = {
+const theme = {
   colors: {
-    active: "#222",
-    primary: "#444",
-    text: "#444",
-    link: "#444",
-    background: "#fff",
-    surface: "#fff",
+    active: "var(--active)",
+    primary: "var(--primary)",
+    text: "var(--text)",
+    background: "var(--background)",
+    surface: "var(--surface)",
   },
   backgrounds: {
-    stage: "none",
+    stage: "var(--stage)",
   },
 }
 
-const darkTheme = {
-  colors: {
-    active: "#DDD",
-    primary: "#BBB",
-    text: "#BBB",
-    link: "#BBB",
-    background: "#000",
-    surface: "#444",
-  },
-  backgrounds: {
-    stage: "radial-gradient(circle at right, #BBB 20%, #000 100%)",
-  },
-}
-
-const THEMES = {
-  light: lightTheme,
-  dark: darkTheme,
-} as const
-
-type ThemeVariant = keyof typeof THEMES
+type ThemeVariant = "light" | "dark"
 
 export type Theme = {
-  colors: Record<keyof typeof lightTheme["colors"], string>
-  backgrounds: Record<keyof typeof lightTheme["backgrounds"], string>
+  colors: Record<keyof typeof theme["colors"], string>
+  backgrounds: Record<keyof typeof theme["backgrounds"], string>
   setThemeVariant: (themeVariant: ThemeVariant) => void
 }
 
@@ -54,6 +32,24 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
     padding: 0;
     box-sizing: border-box;
     background-color: ${(props) => props.theme.colors.background};
+
+    --active: #222;
+    --primary: #444;
+    --text: #444;
+    --background: #fff;
+    --surface: #fff;
+
+    --stage: none;
+
+    &.dark {
+      --active: #DDD;
+      --primary: #BBB;
+      --text: #BBB;
+      --background: #000;
+      --surface: #444;
+
+      --stage: radial-gradient(circle at right, #BBB 20%, #000 100%);
+    }
   }
 `
 
@@ -63,8 +59,8 @@ const StyledPageContainer = styled(Block)`
 
 import posthog from "posthog-js"
 import Head from "next/head"
-import { useEffect, useMemo, useState } from "react"
 import Icon from "../components/Icon"
+import useLocalStorageState from "use-local-storage-state"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   if (!IS_SERVER) {
@@ -73,42 +69,20 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     })
   }
 
-  const [themeVariant, setThemeVariant] = useState<ThemeVariant>()
-
-  const theme = useMemo(
-    () => ({
-      ...THEMES[themeVariant ?? "dark"],
-      setThemeVariant,
-    }),
-    [themeVariant]
-  )
+  const [themeVariant, setThemeVariant] =
+    useLocalStorageState<ThemeVariant>(THEME_VARIANT_LSKEY)
 
   const toggleThemeVariant = () => {
     if (themeVariant === "light") {
       setThemeVariant("dark")
+      document.body.classList.add("dark")
+      document.body.classList.remove("light")
     } else {
       setThemeVariant("light")
+      document.body.classList.add("light")
+      document.body.classList.remove("dark")
     }
   }
-
-  useEffect(() => {
-    if (themeVariant === undefined) {
-      const themeVariant = window.localStorage.getItem(THEME_VARIANT_LSKEY)
-      if (!themeVariant) {
-        window.localStorage.setItem(
-          THEME_VARIANT_LSKEY,
-          JSON.stringify(Math.random() < 0.8 ? "light" : "dark")
-        )
-      } else {
-        setThemeVariant(JSON.parse(themeVariant))
-      }
-    } else {
-      window.localStorage.setItem(
-        THEME_VARIANT_LSKEY,
-        JSON.stringify(themeVariant)
-      )
-    }
-  }, [themeVariant])
 
   return (
     <>
