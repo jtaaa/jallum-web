@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
   }
 `
 
-const StyledPageContainer = styled(Block)`
+const PageContainer = styled(Block)`
   transition: background-color 200ms ease-in-out;
 `
 
@@ -105,9 +105,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <StyledPageContainer height="100%" backgroundColor="background">
+        <PageContainer height="100%" backgroundColor="background">
           <Component {...pageProps} />
-        </StyledPageContainer>
+        </PageContainer>
         <Button
           position="absolute"
           top="16px"

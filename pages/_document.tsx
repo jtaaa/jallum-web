@@ -70,12 +70,27 @@ class MyDocument extends Document {
                 var observer = new MutationObserver(function() {
                   if (document.body) {
                     try {
-                      let lsPreferredThemeValue = localStorage.getItem('${THEME_VARIANT_LSKEY}')
-                      document.body.className = JSON.parse(lsPreferredThemeValue);
+                      // try to get theme from local storage
+                      let themeValue = localStorage.getItem('${THEME_VARIANT_LSKEY}')
+                      document.body.className = JSON.parse(themeValue);
+                      console.info(\`Using \$\{themeValue\} theme based on your past selection.\`)
                     } catch (err) {
-                      // lsPreferredThemeValue is not a valid JSON (unset)
-                      const randThemeValue = Math.random() < 0.5 ? 'light' : 'dark'
-                      document.body.className = randThemeValue;
+                      // preferred theme is not available in local storage
+                      
+                      // check if dark mode is preferred
+                      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        document.body.className = 'dark'
+                        console.info(\`Using dark theme based on your OS or browser preference.\`)
+                        return
+                      }
+
+                      // nothing is preferred so use time of day
+                      const now = new Date()
+                      const isDayTime = now.getHours() >= 5 && now.getHours() < 21
+
+                      const themeValue = isDayTime ? 'light' : 'dark'
+                      document.body.className = themeValue;
+                      console.info(\`Using \$\{themeValue\} theme based on time of day.\`)
                     } finally {
                       observer.disconnect();
                     }
