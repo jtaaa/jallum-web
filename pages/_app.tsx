@@ -2,6 +2,7 @@ import { AppProps } from "next/app"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 import { IS_SERVER, THEME_VARIANT_LSKEY } from "../utils/constants"
 import Sun from "../public/sun.webp"
+import Moon from "../public/moon.webp"
 import Button from "../components/Button"
 import Block from "../components/Block"
 
@@ -61,7 +62,7 @@ import posthog from "posthog-js"
 import Head from "next/head"
 import Icon from "../components/Icon"
 import useLocalStorageState from "use-local-storage-state"
-import { useCallback } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   if (!IS_SERVER) {
@@ -98,6 +99,26 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     }
   }, [setThemeVariant, themeVariant])
 
+  const [themeToggleButton, setThemeToggleButton] =
+    useState<React.ReactNode | null>(null)
+  useEffect(() => {
+    setThemeToggleButton(
+      <Button
+        position="absolute"
+        top="16px"
+        right="16px"
+        onClick={toggleThemeVariant}
+        title="Toggle theme"
+      >
+        <Icon
+          src={themeVariant === "light" ? Sun : Moon}
+          alt={themeVariant === "light" ? "Sun" : "Moon"}
+          name={themeVariant === "light" ? "Light theme" : "Dark theme"}
+        />
+      </Button>
+    )
+  }, [themeVariant, toggleThemeVariant])
+
   return (
     <>
       <Head>
@@ -108,14 +129,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <PageContainer height="100%" backgroundColor="background">
           <Component {...pageProps} />
         </PageContainer>
-        <Button
-          position="absolute"
-          top="16px"
-          right="16px"
-          onClick={toggleThemeVariant}
-        >
-          <Icon src={Sun} alt="Toggle theme" name="Toggle theme" />
-        </Button>
+        {themeToggleButton}
       </ThemeProvider>
     </>
   )
