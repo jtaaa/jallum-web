@@ -71,7 +71,7 @@ class MyDocument extends Document {
                   if (document.body) {
                     try {
                       // try to get theme from local storage
-                      let themeValue = localStorage.getItem('${THEME_VARIANT_LSKEY}')
+                      let themeValue = localStorage.getItem('${THEME_VARIANT_LSKEY}') ?? 'THROW PLS'
                       document.body.className = JSON.parse(themeValue);
                       console.info(\`Using \$\{themeValue\} theme based on your past selection.\`)
                     } catch (err) {

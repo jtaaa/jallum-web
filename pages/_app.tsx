@@ -1,6 +1,7 @@
 import { AppProps } from "next/app"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 import { IS_SERVER, THEME_VARIANT_LSKEY } from "../utils/constants"
+import { useLocalStorageState } from "../hooks/useLocalStorageState"
 import Sun from "../public/sun.webp"
 import Moon from "../public/moon.webp"
 import Button from "../components/Button"
@@ -61,7 +62,6 @@ const PageContainer = styled(Block)`
 import posthog from "posthog-js"
 import Head from "next/head"
 import Icon from "../components/Icon"
-import useLocalStorageState from "use-local-storage-state"
 import { useCallback, useEffect, useState } from "react"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -71,8 +71,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     })
   }
 
-  const [themeVariant, setThemeVariant] =
-    useLocalStorageState<ThemeVariant>(THEME_VARIANT_LSKEY)
+  const [themeVariant, setThemeVariant] = useLocalStorageState<ThemeVariant>(
+    "theme-variant",
+    IS_SERVER ? "light" : (document.body.className as ThemeVariant)
+  )
 
   const toggleThemeVariant = useCallback(() => {
     const setDark = () => {
