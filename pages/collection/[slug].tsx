@@ -29,7 +29,6 @@ const CollectionPage = ({ slug }: CollectionPageProps) => {
       <Head>
         <title>{title}</title>
         <meta content={title} key="og:title" property="og:title" />
-        <meta content={title} key="og:description" property="og:description" />
         <meta
           key="og:image"
           property="og:image"
