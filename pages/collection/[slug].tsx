@@ -1,13 +1,14 @@
-import { useRouter } from "next/router"
 import Head from "next/head"
 import React from "react"
 import ExternalLink from "../../components/ExternalLink"
 import Text from "../../components/Text"
 import { NextPageContext } from "next"
+import Image from "next/image"
 import {
   OG_IMAGE_SERVICE_URL,
   OG_IMAGE_OPENSEA_URL,
 } from "../../utils/constants"
+import Block from "../../components/Block"
 
 const getCollectionOGImageUrl = (collectionSlug: string) =>
   `${OG_IMAGE_SERVICE_URL}/collections/${collectionSlug}`
@@ -31,13 +32,23 @@ const CollectionPage = ({ slug }: CollectionPageProps) => {
           content={getCollectionOGImageUrl(sanitizedSlug)}
         />
       </Head>
-      <Text variant="h1">Collection Slug: {sanitizedSlug}</Text>
-      <ExternalLink
-        name="OpenSea Collection Page"
-        href={getCollectionOpenSeaUrl(sanitizedSlug)}
-      >
-        <Text>OpenSea Link</Text>
-      </ExternalLink>
+      <Block>
+        <Text variant="h1">Collection Slug: {sanitizedSlug}</Text>
+        <ExternalLink
+          name="OpenSea Collection Page"
+          href={getCollectionOpenSeaUrl(sanitizedSlug)}
+        >
+          <Text>OpenSea Link</Text>
+        </ExternalLink>
+      </Block>
+      <Block marginTop="32px">
+        <Image
+          height="630px"
+          width="1200px"
+          alt="Collection preview"
+          src={getCollectionOGImageUrl(sanitizedSlug)}
+        />
+      </Block>
     </>
   )
 }

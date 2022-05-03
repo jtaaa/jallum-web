@@ -8,6 +8,8 @@ import {
   OG_IMAGE_OPENSEA_URL,
   OG_IMAGE_SERVICE_URL,
 } from "../../utils/constants"
+import Image from "next/image"
+import Block from "../../components/Block"
 
 const getAccountOGImageUrl = (identifier: string) =>
   `${OG_IMAGE_SERVICE_URL}/accounts/${identifier}`
@@ -33,13 +35,23 @@ const AccountPage = ({ identifier }: AccountPageProps) => {
           content={getAccountOGImageUrl(sanitizedIdentifier)}
         />
       </Head>
-      <Text variant="h1">Account identifier: {sanitizedIdentifier}</Text>
-      <ExternalLink
-        name="OpenSea Account Page"
-        href={getAccountOpenSeaUrl(sanitizedIdentifier)}
-      >
-        <Text>OpenSea Link</Text>
-      </ExternalLink>
+      <Block>
+        <Text variant="h1">Account identifier: {sanitizedIdentifier}</Text>
+        <ExternalLink
+          name="OpenSea Account Page"
+          href={getAccountOpenSeaUrl(sanitizedIdentifier)}
+        >
+          <Text>OpenSea Link</Text>
+        </ExternalLink>
+      </Block>
+      <Block marginTop="32px">
+        <Image
+          height="630px"
+          width="1200px"
+          alt="Account preview"
+          src={getAccountOGImageUrl(sanitizedIdentifier)}
+        />
+      </Block>
     </>
   )
 }
