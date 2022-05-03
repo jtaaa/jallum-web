@@ -28,7 +28,8 @@ const CollectionPage = ({ slug }: CollectionPageProps) => {
       <Head>
         <title>{`${sanitizedSlug} - Collection | OpenSea`}</title>
         <meta
-          name="og:image"
+          key="og:image"
+          property="og:image"
           content={getCollectionOGImageUrl(sanitizedSlug)}
         />
       </Head>

@@ -31,7 +31,8 @@ const AccountPage = ({ identifier }: AccountPageProps) => {
       <Head>
         <title>{`${sanitizedIdentifier} - Account | OpenSea`}</title>
         <meta
-          name="og:image"
+          key="og:image"
+          property="og:image"
           content={getAccountOGImageUrl(sanitizedIdentifier)}
         />
       </Head>
