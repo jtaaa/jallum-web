@@ -24,3 +24,8 @@ export const IS_SERVER = typeof window === "undefined"
 
 // Theme stuff
 export const THEME_VARIANT_LSKEY = "theme-variant"
+
+// og-previews demo stuff
+export const OG_IMAGE_SERVICE_URL =
+  "https://b6eilgu1z0.execute-api.us-east-1.amazonaws.com"
+export const OG_IMAGE_OPENSEA_URL = "https://opensea.io"
