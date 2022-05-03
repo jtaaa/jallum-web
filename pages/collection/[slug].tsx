@@ -22,15 +22,23 @@ type CollectionPageProps = {
 const CollectionPage = ({ slug }: CollectionPageProps) => {
   // Asserting non-null here since route 404s when no slug is provided
   const sanitizedSlug = (Array.isArray(slug) ? slug[0] : slug)!.trim()
+  const title = `${sanitizedSlug} - Collection | OpenSea`
 
   return (
     <>
       <Head>
-        <title>{`${sanitizedSlug} - Collection | OpenSea`}</title>
+        <title>{title}</title>
+        <meta content={title} key="og:title" property="og:title" />
+        <meta content={title} key="og:description" property="og:description" />
         <meta
           key="og:image"
           property="og:image"
           content={getCollectionOGImageUrl(sanitizedSlug)}
+        />
+        <meta
+          key="twitter:card"
+          name="twitter:card"
+          content="summary_large_image"
         />
       </Head>
       <Block>

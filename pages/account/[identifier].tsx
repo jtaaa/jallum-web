@@ -25,15 +25,23 @@ const AccountPage = ({ identifier }: AccountPageProps) => {
   const sanitizedIdentifier = (
     Array.isArray(identifier) ? identifier[0] : identifier
   )!.trim()
+  const title = `${sanitizedIdentifier} - Account | OpenSea`
 
   return (
     <>
       <Head>
-        <title>{`${sanitizedIdentifier} - Account | OpenSea`}</title>
+        <title>{title}</title>
+        <meta content={title} key="og:title" property="og:title" />
+        <meta content={title} key="og:description" property="og:description" />
         <meta
           key="og:image"
           property="og:image"
           content={getAccountOGImageUrl(sanitizedIdentifier)}
+        />
+        <meta
+          key="twitter:card"
+          name="twitter:card"
+          content="summary_large_image"
         />
       </Head>
       <Block>
