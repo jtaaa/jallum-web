@@ -12,7 +12,7 @@ import Image from "next/image"
 import Block from "../../components/Block"
 
 const getAccountOGImageUrl = (identifier: string) =>
-  `${OG_IMAGE_SERVICE_URL}/accounts/${identifier}`
+  `${OG_IMAGE_SERVICE_URL}/account/${identifier}`
 const getAccountOpenSeaUrl = (accountSlug: string) =>
   `${OG_IMAGE_OPENSEA_URL}/${accountSlug}`
 

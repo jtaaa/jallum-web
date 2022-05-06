@@ -11,7 +11,7 @@ import {
 import Block from "../../components/Block"
 
 const getCollectionOGImageUrl = (collectionSlug: string) =>
-  `${OG_IMAGE_SERVICE_URL}/collections/${collectionSlug}`
+  `${OG_IMAGE_SERVICE_URL}/collection/${collectionSlug}`
 const getCollectionOpenSeaUrl = (collectionSlug: string) =>
   `${OG_IMAGE_OPENSEA_URL}/collection/${collectionSlug}`
 

@@ -27,5 +27,5 @@ export const THEME_VARIANT_LSKEY = "theme-variant"
 
 // og-previews demo stuff
 export const OG_IMAGE_SERVICE_URL =
-  "https://b6eilgu1z0.execute-api.us-east-1.amazonaws.com"
+  "https://tr0raohq7i.execute-api.us-east-1.amazonaws.com"
 export const OG_IMAGE_OPENSEA_URL = "https://opensea.io"
