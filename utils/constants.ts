@@ -26,6 +26,5 @@ export const IS_SERVER = typeof window === "undefined"
 export const THEME_VARIANT_LSKEY = "theme-variant"
 
 // og-previews demo stuff
-export const OG_IMAGE_SERVICE_URL =
-  "https://tr0raohq7i.execute-api.us-east-1.amazonaws.com"
+export const OG_IMAGE_SERVICE_URL = "https://og.opensea.io"
 export const OG_IMAGE_OPENSEA_URL = "https://opensea.io"
