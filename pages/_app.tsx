@@ -1,6 +1,6 @@
 import { AppProps } from "next/app"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
-import { IS_SERVER, THEME_VARIANT_LSKEY } from "../utils/constants"
+import { IS_SERVER } from "../utils/constants"
 import { useLocalStorageState } from "../hooks/useLocalStorageState"
 import Sun from "../public/sun.webp"
 import Moon from "../public/moon.webp"

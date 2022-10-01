@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Block, { BlockProps } from "./Block"
+import type { BlockProps } from "./Block"
 import CenterContainer from "./CenterContainer"
 
 const RoundContainer = styled(CenterContainer)<BlockProps>`
