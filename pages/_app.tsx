@@ -59,18 +59,11 @@ const PageContainer = styled(Block)`
   transition: background-color 200ms ease-in-out;
 `
 
-import posthog from "posthog-js"
 import Head from "next/head"
 import Icon from "../components/Icon"
 import { useCallback, useEffect, useState } from "react"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  if (!IS_SERVER) {
-    posthog.init("phc_EwdTbkSTE1hfRXTRTlt77vGUjsjmDn42Uf3orzEWHF7", {
-      api_host: "https://app.posthog.com",
-    })
-  }
-
   const [themeVariant, setThemeVariant] = useLocalStorageState<ThemeVariant>(
     "theme-variant",
     IS_SERVER ? "light" : (document.body.className as ThemeVariant)
